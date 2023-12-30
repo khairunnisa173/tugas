@@ -1,83 +1,179 @@
-import React, { Component } from 'react';
-import { FlatList, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import React, {useState, useEffect} from "react";
+import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchData: '',
-      dataMovie: []
-    };
-  }
-
-  ambilData = () => {
-    fetch('http://www.omdbapi.com/?apikey=fed3f0d6&s=' + this.state.searchData)
-    .then((response) => response.json())
-    .then((json) => this.setState({dataMovie:json.Search},()=>console.log(json)))
-    .catch((err) => console.log(err))
-  }
-
-  render() {
-    return (
-      <View style={{ flex: 1 }}>
-        <View style={{ 
-          flex: 1, backgroundColor: 'blue', justifyContent: 'center',
-          alignItems: 'center' 
+const App = () => {
+  return (
+    <View style={{flex: 1, backgroundColor: 'grey'}}>
+      <ScrollView>
+      <View style={{marginHorizontal: 20, marginTop: 10}}>
+      <TouchableOpacity 
+      style={{
+        backgroundColor: 'lightsteelblue', 
+        paddingVertical: 15,
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center'
         }}>
+        <Text style={{color: 'black', fontWeight: 'bold', fontSize: 18}}>
+          CELANA</Text>
+      </TouchableOpacity>
 
-         <Text style={{
-           color: 'black', fontSize: 24, fontWeight: 'bold'
-         }}>Nonton Movie</Text>
+      <TouchableOpacity 
+      style={{
+        backgroundColor: 'lightsteelblue', 
+        paddingVertical: 15,
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10,
+        elevation: 3
+        }}>
+        <Text style={{color: 'black', fontWeight: 'bold', fontSize: 18}}>
+          BAJU</Text>
+      </TouchableOpacity>
 
+      <TouchableOpacity 
+      style={{
+        backgroundColor: 'lightsteelblue', 
+        paddingVertical: 15,
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10,
+        elevation: 3
+        }}>
+        <Text style={{color: 'black', fontWeight: 'bold', fontSize: 18}}>
+          DRESS</Text>
+      </TouchableOpacity>
 
-        </View>
+      <TouchableOpacity 
+      style={{
+        backgroundColor: 'lightsteelblue', 
+        paddingVertical: 15,
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10,
+        elevation: 3
+        }}>
+        <Text style={{color: 'black', fontWeight: 'bold', fontSize: 18}}>
+          TOPI</Text>
+      </TouchableOpacity>
 
-          <View style={{flex: 7}}>
-          <View style={{ flex: 1, backgroundColor: 'white', flexDirection: 'row', 
-        justifyContent: 'center', alignItems: 'flex-start', marginTop: 10 }}>
-          <View>
-          <TextInput
-            placeholder='cari movie'
-            onChangeText = {(value) => this.setState({searchData : value})}
-            style={{
-              marginHorizontal: 20, paddingHorizontal: 10,
-              borderBottomColor: 'black',
-              borderBottomWidth: 2,
-              width: 200
-            }}
+      <TouchableOpacity 
+      style={{
+        backgroundColor: 'lightsteelblue', 
+        paddingVertical: 15,
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10,
+        elevation: 3
+        }}>
+        <Text style={{color: 'black', fontWeight: 'bold', fontSize: 18}}>
+         KACAMATA</Text>
+      </TouchableOpacity>
 
-          />
-          </View>
-          <View>
-            <TouchableOpacity style={{
-              backgroundColor: 'black',
-              paddingHorizontal: 20,
-              paddingVertical: 20,
-              borderRadius: 10,
-              elevation: 5
-            }}
-              onPress={() => this.ambilData()}
-            >
-              <Text style={{color: 'white' }}>Cari</Text>
-            </TouchableOpacity>
-          </View>
-       </View>
+      <TouchableOpacity 
+      style={{
+        backgroundColor: 'lightsteelblue', 
+        paddingVertical: 15,
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10,
+        elevation: 3
+        }}>
+        <Text style={{color: 'black', fontWeight: 'bold', fontSize: 18}}>
+          SEPATU</Text>
+      </TouchableOpacity>
 
-       </View>
+      <TouchableOpacity 
+      style={{
+        backgroundColor: 'lightsteelblue', 
+        paddingVertical: 15,
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10,
+        elevation: 3
+        }}>
+        <Text style={{color: 'black', fontWeight: 'bold', fontSize: 18}}>
+          AKSESORIS</Text>
+      </TouchableOpacity>
 
-       <FlatList
-              data={this.state.dataMovie}
-              keyExtractor={(item) =>item.imdbID}
-              renderItem={({item,index}) => (
-                <View style={{ marginTop: 10 }}>
-                  <Text>{item.Title}</Text>
-                  <Text>{item.Year}</Text>
-                </View>
-              )}
-            />
-          </View>
-    );
-  }
+      <TouchableOpacity 
+      style={{
+        backgroundColor: 'lightsteelblue', 
+        paddingVertical: 15,
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10,
+        elevation: 3
+        }}>
+        <Text style={{color: 'black', fontWeight: 'bold', fontSize: 18}}>
+          KERUDUNG</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+      style={{
+        backgroundColor: 'lightsteelblue', 
+        paddingVertical: 15,
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10,
+        elevation: 3
+        }}>
+        <Text style={{color: 'black', fontWeight: 'bold', fontSize: 18}}>
+         TAS</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+      style={{
+        backgroundColor: 'lightsteelblue', 
+        paddingVertical: 15,
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10,
+        elevation: 3
+        }}>
+        <Text style={{color: 'black', fontWeight: 'bold', fontSize: 18}}>
+          ROK</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+      style={{
+        backgroundColor: 'lightsteelblue', 
+        paddingVertical: 15,
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10,
+        elevation: 3
+        }}>
+        <Text style={{color: 'black', fontWeight: 'bold', fontSize: 18}}>
+          SYAR'I</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+      style={{
+        backgroundColor: 'lightsteelblue', 
+        paddingVertical: 15,
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10,
+        elevation: 3
+        }}>
+        <Text style={{color: 'black', fontWeight: 'bold', fontSize: 18}}>
+          HELLS</Text>
+      </TouchableOpacity>
+      </View>
+      </ScrollView>
+    </View>
+  );
 }
-
 export default App;
